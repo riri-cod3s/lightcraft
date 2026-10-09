@@ -1,0 +1,22 @@
+[package]
+name = "quickcull"
+version = "0.1.0"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+description = "Fast keyboard-driven photo culling: arrow through a folder, pick the best, copy/compress them elsewhere"
+
+# Standalone: not part of the LightCraft workspace.
+[workspace]
+
+[dependencies]
+eframe = "0.36"
+egui = "0.36"
+image = { version = "0.25", default-features = false, features = ["jpeg", "png", "webp", "tiff"] }
+rfd = "0.17"
+serde_json = "1"
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+lto = "thin"
